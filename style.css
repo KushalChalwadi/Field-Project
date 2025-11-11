@@ -1,0 +1,235 @@
+/*
+|===================================|
+|   ADVANCED CSS STYLES (style.css) |
+|===================================|
+*/
+
+/* --- Global Styles & Modern Reset --- */
+:root {
+    --primary-color: #4CAF50; /* Green */
+    --accent-color: #03A9F4; /* Blue */
+    --background-color: #f4f7f6;
+    --card-bg: #ffffff;
+    --shadow-light: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: var(--background-color);
+    color: #333;
+    display: flex;
+    justify-content: center;
+    align-items: center; 
+    min-height: 100vh;
+    padding: 20px;
+    transition: background-color 0.5s;
+}
+
+/* --- Container & Card Styling (Animated Entry) --- */
+.container {
+    width: 100%;
+    max-width: 650px; 
+    background: var(--card-bg);
+    padding: 40px;
+    border-radius: 12px;
+    box-shadow: var(--shadow-light);
+    animation: fadeInScale 0.8s ease-out;
+}
+
+/* Flexbox for Header layout */
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 30px;
+    padding-bottom: 15px;
+    border-bottom: 2px solid #eee;
+}
+
+header h1 {
+    color: var(--primary-color);
+    font-size: 32px;
+    font-weight: 600;
+}
+
+.card {
+    background: #fdfdfd;
+    padding: 25px;
+    margin-top: 25px;
+    border-radius: 8px;
+    border-left: 5px solid var(--accent-color); 
+    transition: box-shadow 0.3s ease;
+}
+
+.card:hover {
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+/* --- Input and Form Styles --- */
+.auth-form, .input-section form {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+input[type="text"], 
+input[type="password"], 
+input[type="number"] {
+    padding: 14px;
+    border: 1px solid #ddd;
+    border-radius: 6px;
+    font-size: 16px;
+    transition: border-color 0.3s, box-shadow 0.3s;
+}
+
+input:focus {
+    border-color: var(--primary-color);
+    outline: none;
+    box-shadow: 0 0 5px rgba(76, 175, 80, 0.3);
+}
+
+.input-group {
+    display: flex;
+    flex-direction: column;
+}
+
+.input-group label {
+    font-weight: bold;
+    margin-bottom: 8px;
+    color: #555;
+}
+
+/* --- Button Styles (Animated) --- */
+.btn {
+    padding: 14px 20px;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 16px;
+    font-weight: bold;
+    letter-spacing: 0.5px;
+    transition: all 0.3s ease;
+    text-transform: uppercase;
+}
+
+.primary-btn {
+    background-color: var(--primary-color);
+    color: white;
+}
+
+.primary-btn:hover {
+    background-color: #45a049;
+    transform: translateY(-2px); 
+    box-shadow: 0 4px 10px rgba(76, 175, 80, 0.4);
+}
+
+.logout-btn {
+    background-color: #f44336; 
+    color: white;
+    padding: 10px 18px;
+}
+
+.logout-btn:hover {
+    background-color: #d32f2f;
+    transform: scale(1.05); 
+}
+
+/* --- Google Button & Separator --- */
+.separator {
+    text-align: center;
+    margin: 15px 0 5px 0;
+    font-size: 14px;
+    color: #888;
+    position: relative;
+}
+
+.separator::before,
+.separator::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    width: 35%; 
+    height: 1px;
+    background: #ccc;
+}
+
+.separator::before { left: 0; }
+.separator::after { right: 0; }
+
+.google-btn {
+    background-color: #4285F4; /* Google Blue */
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 10px 20px;
+    text-transform: none; 
+}
+
+.google-btn:hover {
+    background-color: #357ae8;
+    transform: none;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+}
+
+.google-icon {
+    width: 20px;
+    height: 20px;
+    margin-right: 10px;
+}
+
+/* --- Report, Suggestions & Chart --- */
+.suggestions-section h2 {
+    color: var(--accent-color); 
+    border-bottom: 1px dashed #eee;
+    padding-bottom: 10px;
+}
+
+.chart-container {
+    width: 100%;
+    margin: 30px 0;
+    padding: 20px;
+    background: #e6f7ff; 
+    border-radius: 10px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+}
+
+.report-line {
+    font-size: 17px;
+    font-weight: 500;
+    margin-bottom: 12px;
+    padding: 8px 0;
+    border-bottom: 1px dashed #ddd;
+    animation: fadeIn 1s ease-out;
+}
+
+#suggestions-output p {
+    background: #e9f7e9;
+    padding: 15px;
+    border-left: 5px solid var(--primary-color);
+    margin-bottom: 10px;
+    border-radius: 6px;
+    font-style: italic;
+}
+
+/* --- Keyframe Animations --- */
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+@keyframes fadeInScale {
+    from { opacity: 0; transform: scale(0.95); }
+    to { opacity: 1; transform: scale(1); }
+}
+
+/* --- Utility Class --- */
+.hidden {
+    display: none !important;
+}

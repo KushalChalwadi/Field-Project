@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Personalised Health Assistant</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <div class="container" id="auth-screen">
+        <header>
+            <h1>🩺 Personal Health Assistant</h1>
+            <p>Welcome! Please Sign In or Sign Up to continue.</p>
+        </header>
+
+        <form id="login-form" class="auth-form">
+            <h2>User Login</h2>
+            <input type="text" id="username" placeholder="Username" required>
+            <input type="password" id="password" placeholder="Password" required>
+            <button type="submit" class="btn primary-btn">Login</button>
+            
+            <div class="separator">OR</div>
+            <button type="button" class="btn google-btn" id="google-login-btn">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/c1/Google_%22G%22_logo.svg/512px-Google_%22G%22_logo.svg.png" alt="G" class="google-icon">
+                Continue with Google
+            </button>
+            
+            <p class="message">Don't have an account? <a href="#" id="show-signup">Sign Up</a></p>
+        </form>
+
+        <form id="signup-form" class="auth-form hidden">
+            <h2>User Registration</h2>
+            <input type="text" id="new-username" placeholder="Choose Username" required>
+            <input type="password" id="new-password" placeholder="Choose Password" required>
+            <button type="submit" class="btn primary-btn">Sign Up</button>
+            
+            <div class="separator">OR</div>
+            <button type="button" class="btn google-btn" id="google-signup-btn">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/c1/Google_%22G%22_logo.svg/512px-Google_%22G%22_logo.svg.png" alt="G" class="google-icon">
+                Continue with Google
+            </button>
+            
+            <p class="message">Already have an account? <a href="#" id="show-login">Login</a></p>
+        </form>
+    </div>
+
+    <div class="container hidden" id="main-dashboard">
+        <header>
+            <h1 id="welcome-message">Hello, User!</h1>
+            <button class="btn logout-btn" id="logout-btn">Logout</button>
+        </header>
+
+        <div class="input-section card">
+            <h2>Health Data Input</h2>
+            <form id="health-data-form">
+                <div class="input-group">
+                    <label for="age">Age (Years):</label>
+                    <input type="number" id="age" min="1" max="100" required>
+                </div>
+                <div class="input-group">
+                    <label for="weight">Weight (kg):</label>
+                    <input type="number" id="weight" step="0.1" required>
+                </div>
+                <div class="input-group">
+                    <label for="height">Height (cm):</label>
+                    <input type="number" id="height" required>
+                </div>
+                
+                <div class="input-group">
+                    <label for="systolic">Blood Pressure (Systolic):</label>
+                    <input type="number" id="systolic">
+                </div>
+                <div class="input-group">
+                    <label for="diastolic">Blood Pressure (Diastolic):</label>
+                    <input type="number" id="diastolic">
+                </div>
+                
+                <div class="input-group">
+                    <label for="heartrate">Heart Rate (BPM):</label>
+                    <input type="number" id="heartrate">
+                </div>
+                <div class="input-group">
+                    <label for="cholesterol">Total Cholesterol (mg/dL):</label>
+                    <input type="number" id="cholesterol">
+                </div>
+                
+                <div class="input-group">
+                    <label for="sugar">Fasting Sugar Level (mg/dL):</label>
+                    <input type="number" id="sugar">
+                </div>
+                <div class="input-group">
+                    <label for="sleep">Sleep Hours:</label>
+                    <input type="number" id="sleep" step="0.5" min="0" max="24">
+                </div>
+                <button type="submit" class="btn primary-btn">Analyze & Get Suggestions</button>
+            </form>
+        </div>
+
+        <div class="suggestions-section card">
+            <h2>📊 Your Health Report & Suggestions</h2>
+            
+            <div class="chart-container">
+                <h3>Key Health Metrics Comparison</h3>
+                <canvas id="healthChart"></canvas> 
+            </div>
+
+            <p id="bmi-result" class="report-line">BMI: --</p>
+            <p id="bp-result" class="report-line">Blood Pressure: --</p>
+            <p id="hr-result" class="report-line">Heart Rate: --</p>
+            <p id="cholesterol-result" class="report-line">Total Cholesterol: --</p>
+            <p id="sugar-result" class="report-line">Sugar Level: --</p>
+
+            <div id="suggestions-output">
+                <p>Submit your data to get personalized advice!</p>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@3.7.1/dist/chart.min.js"></script>
+    
+    <script src="script.js"></script>
+</body>
+</html>
